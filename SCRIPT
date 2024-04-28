@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                // Checkout the repository from GitHub
+                git 'https://github.com/anshjainnnnn/Xammapp.git'
+            }
+        }
+
+        stage('Deploy to XAMPP') {
+            steps {
+                // Copy files to XAMPP htdocs directory
+                bat 'xcopy /E /Y .\\* C:\\xampp\\htdocs'
+
+            }
+        }
+    }
+}
+
